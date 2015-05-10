@@ -43,6 +43,7 @@ public class VertexImpl implements Vertex {
 
 	@Override
 	public int size() {
+		//TODO: need to fix it , that is not what hilal wants
 		int retVal = _Connections.size();
 		return retVal;
 	}
