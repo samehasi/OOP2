@@ -16,4 +16,3 @@ public class VertexImpl implements Vertex {
 	
 
 }
-//kokokoko
