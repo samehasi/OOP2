@@ -1,6 +1,7 @@
 package OOP2.Tests;
 
 import OOP2.Provided.Edge;
+import OOP2.Provided.Vertex;
 import OOP2.Solution.VertexImpl;
 ;
 public class Tester {
@@ -10,14 +11,14 @@ public class Tester {
 		VertexImpl v3 = new VertexImpl("v3",3);
 		VertexImpl v4 = new VertexImpl("v4",4);
 		VertexImpl v5 = new VertexImpl("v5",5);
+		v2.connect(v4);
+		v2.connect(v5);
 		v1.connect(v2);
 		v1.connect(v3);
-		v1.connect(v4);
-		v1.connect(v5);
 
-		for (Edge e : v1.getSuccessors()) {
+		for (Vertex v : v1.find(v3)) {
 			
-			System.out.println(e.getEndpoint().Value());
+			System.out.println(v.Value());
 			
 		}
 	}

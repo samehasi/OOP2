@@ -30,8 +30,15 @@ public class VertexImpl implements Vertex {
 
 	@Override
 	public Collection<Vertex> find(Vertex target) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		/*allocate collection to return*/
+		LinkedList<Vertex> retCollection = new LinkedList<Vertex>();
+		
+		/*search for path recursively*/
+		recFind(retCollection, this, target);
+		
+		/*return the collection*/
+		return retCollection;
 	}
 
 	@Override
@@ -60,5 +67,34 @@ public class VertexImpl implements Vertex {
 		return val;
 	}
 	
-
+public static boolean recFind(LinkedList<Vertex> linkedList,Vertex source , Vertex target){
+	if(source.getSuccessors().isEmpty()){
+		return false;
+	}
+		
+	linkedList.addLast(source);
+	
+	if(source.Value() == target.Value()){
+		return true;
+	}
+	
+	for (Edge edge : source.getSuccessors()) {
+		Vertex nextVertex = edge.getEndpoint();
+		
+		if(nextVertex.Value() == target.Value())
+		{
+			linkedList.addLast(target);
+			return true;
+		}
+		boolean ret = recFind(linkedList,nextVertex,target);
+		if(ret){
+			return true;
+		}else{
+			continue;
+		}
+	}
+	linkedList.removeLast();
+	return false;
+}
+	
 }
