@@ -75,14 +75,14 @@ public static boolean recFind(LinkedList<Vertex> linkedList,Vertex source , Vert
 		
 	linkedList.addLast(source);
 	
-	if(source.Value() == target.Value()){
+	if(source.equals(target)){
 		return true;
 	}
 	
 	for (Edge edge : source.getSuccessors()) {
 		Vertex nextVertex = edge.getEndpoint();
 		
-		if(nextVertex.Value() == target.Value())
+		if(nextVertex.equals(target))
 		{
 			linkedList.addLast(target);
 			return true;
@@ -98,4 +98,12 @@ public static boolean recFind(LinkedList<Vertex> linkedList,Vertex source , Vert
 	return false;
 }
 	
+@Override
+public boolean equals(Object obj) {
+	if(!(obj instanceof VertexImpl)){
+		return false;
+	}
+	VertexImpl otherVertex = (VertexImpl) obj;
+	return _name.equals(otherVertex._name);
+}
 }

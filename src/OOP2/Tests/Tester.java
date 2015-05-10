@@ -16,7 +16,7 @@ public class Tester {
 		v1.connect(v2);
 		v1.connect(v3);
 
-		for (Vertex v : v1.find(v3)) {
+		for (Vertex v : v1.find(v4)) {
 			
 			System.out.println(v.Value());
 			
