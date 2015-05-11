@@ -55,7 +55,7 @@ public class LinkedList<T> implements Iterable<T> {
 		Node<T> nodeToAddAfter = find(toAddAfter);
 		
 		if(nodeToAddAfter != null){
-			Node<T> nodeToAdd = new Node<T>(toAddAfter);
+			Node<T> nodeToAdd = new Node<T>(toAdd);
 			nodeToAdd._next = nodeToAddAfter._next;
 			nodeToAddAfter._next = nodeToAdd;
 			_size++;

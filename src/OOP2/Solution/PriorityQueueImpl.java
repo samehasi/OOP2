@@ -75,6 +75,30 @@ public class PriorityQueueImpl implements PriorityQueue {
 	public boolean isEmpty() {
 		return (_linkedList.size() == 0);
 	}
+
+	public Iterator<Vertex> iterator() {
+		return new priQueueIterator(_linkedList);
+	}
+	
+	class priQueueIterator implements Iterator<Vertex>{
+
+		Iterator<PriQueueNode> priQueueIterator;
+		
+		public priQueueIterator(LinkedList<PriQueueNode> list){
+			priQueueIterator = list.iterator();
+		}
+		@Override
+		public boolean hasNext() {
+			return priQueueIterator.hasNext();
+		}
+
+		@Override
+		public Vertex next() {
+			return priQueueIterator.next()._vertex;
+
+		}
+		
+	}
 	
 
 }

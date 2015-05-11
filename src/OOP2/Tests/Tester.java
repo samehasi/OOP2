@@ -51,8 +51,41 @@ public class Tester {
 				System.err.println("queue is empty!!");
 			}
 		
-		
-		
+			prQueue.enqueue(v2, 5);
+			System.out.println("~~~~~~~");
+		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
+			Vertex vertex = (Vertex) iterator.next();
+			System.out.println(vertex.toString());		
+			
+		}
+			prQueue.enqueue(v3, 7);
+			System.out.println("~~~~~~~");
+		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
+			Vertex vertex = (Vertex) iterator.next();
+			System.out.println(vertex.toString());		
+			
+		}
+			prQueue.enqueue(v4, 2);
+			System.out.println("~~~~~~~");
+		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
+			Vertex vertex = (Vertex) iterator.next();
+			System.out.println(vertex.toString());		
+			
+		}
+			prQueue.enqueue(v5, 16);
+			System.out.println("~~~~~~~");
+		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
+			Vertex vertex = (Vertex) iterator.next();
+			System.out.println(vertex.toString());		
+			
+		}
+			
+			System.out.println("~~~~~~~");
+		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
+			Vertex vertex = (Vertex) iterator.next();
+			System.out.println(vertex.toString());		
+			
+		}
 		v2.connect(v4);
 		v2.connect(v5);
 		v1.connect(v2);
