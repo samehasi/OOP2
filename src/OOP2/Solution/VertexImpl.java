@@ -106,4 +106,10 @@ public boolean equals(Object obj) {
 	VertexImpl otherVertex = (VertexImpl) obj;
 	return _name.equals(otherVertex._name);
 }
+
+@Override
+public String toString(){
+	return _name;
+}
+
 }

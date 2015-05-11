@@ -57,7 +57,8 @@ public class LinkedList<T> implements Iterable<T> {
 		if(nodeToAddAfter != null){
 			Node<T> nodeToAdd = new Node<T>(toAddAfter);
 			nodeToAdd._next = nodeToAddAfter._next;
-			nodeToAddAfter._next = nodeToAddAfter;
+			nodeToAddAfter._next = nodeToAdd;
+			_size++;
 		}
 	}
 	
@@ -69,6 +70,7 @@ public class LinkedList<T> implements Iterable<T> {
 	public void removeFirst(){
 		if(_size > 0){
 			_headDummy._next = _headDummy._next._next;
+			_size--;
 		}
 	}
 	
