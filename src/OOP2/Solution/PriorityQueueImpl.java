@@ -35,7 +35,7 @@ public class PriorityQueueImpl implements PriorityQueue {
 		for (Iterator<PriQueueNode> iterator = _linkedList.iterator(); iterator.hasNext();) {
 			PriQueueNode queueIter = (PriQueueNode) iterator.next();
 			
-			if(queueIter._priority >= tag){
+			if(queueIter._priority > tag){
 				break;
 			}else{
 				toAddAfter = queueIter;

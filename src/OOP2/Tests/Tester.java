@@ -51,7 +51,9 @@ public class Tester {
 				System.err.println("queue is empty!!");
 			}
 		
-			prQueue.enqueue(v2, 5);
+			assert prQueue.isEmpty();
+			
+			prQueue.enqueue(v2, 7);
 			System.out.println("~~~~~~~");
 		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
 			Vertex vertex = (Vertex) iterator.next();
@@ -65,14 +67,14 @@ public class Tester {
 			System.out.println(vertex.toString());		
 			
 		}
-			prQueue.enqueue(v4, 2);
+			prQueue.enqueue(v4,7 );
 			System.out.println("~~~~~~~");
 		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
 			Vertex vertex = (Vertex) iterator.next();
 			System.out.println(vertex.toString());		
 			
 		}
-			prQueue.enqueue(v5, 16);
+			prQueue.enqueue(v5, 7);
 			System.out.println("~~~~~~~");
 		for (Iterator<Vertex> iterator = prQueue.iterator(); iterator.hasNext();) {
 			Vertex vertex = (Vertex) iterator.next();
