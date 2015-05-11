@@ -51,7 +51,38 @@ public class LinkedList<T> implements Iterable<T> {
 		
 	}
 	
+	public void addAfter(T toAdd ,T toAddAfter){
+		Node<T> nodeToAddAfter = find(toAddAfter);
+		
+		if(nodeToAddAfter != null){
+			Node<T> nodeToAdd = new Node<T>(toAddAfter);
+			nodeToAdd._next = nodeToAddAfter._next;
+			nodeToAddAfter._next = nodeToAddAfter;
+		}
+	}
 	
+	
+	public T getFirst(){
+		return _headDummy._next._data;
+	}
+	
+	public void removeFirst(){
+		if(_size > 0){
+			_headDummy._next = _headDummy._next._next;
+		}
+	}
+	
+private Node<T> find(T toFind){
+	Node<T> iter = _headDummy;
+	
+	while(iter._next != _tailDummy){
+		iter = iter._next;
+		if(iter._data == toFind){
+			return iter;
+		}
+	}
+	return null;
+}
 	
 
 	@Override
