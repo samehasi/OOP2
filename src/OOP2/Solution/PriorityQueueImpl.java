@@ -8,7 +8,7 @@ import OOP2.Provided.QueueEmptyException;
 import OOP2.Provided.Vertex;
 import OOP2.Solution.LinkedList;
 
-public class PriorityQueueImpl implements PriorityQueue {
+public class PriorityQueueImpl implements PriorityQueue,Iterable<Vertex> {
 	
 	private class PriQueueNode{
 		public Vertex _vertex;
