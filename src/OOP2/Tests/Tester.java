@@ -1,11 +1,8 @@
 package OOP2.Tests;
 
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.SortedMap;
 
-import OOP2.Provided.Edge;
 import OOP2.Provided.QueueEmptyException;
 import OOP2.Provided.Vertex;
 import OOP2.Solution.VertexImpl;

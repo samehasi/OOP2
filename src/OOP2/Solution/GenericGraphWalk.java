@@ -2,22 +2,27 @@ package OOP2.Solution;
 
 import java.util.Iterator;
 
+
+
 import OOP2.Provided.Edge;
 import OOP2.Provided.QueueEmptyException;
 import OOP2.Provided.Vertex;
 
 public abstract class GenericGraphWalk {
+	private boolean _bHasNext;
 	private PriorityQueueImpl _openVertexes;
 	private LinkedList<Vertex> _ClosedVertexes;
-	private Vertex _currentVertex;
-	private int _currentVertexPriority;
+	private  Vertex _currentVertex;
+	protected int _currentVertexPriority;
 	
 	abstract int getNextTag();
 	
-	private final int INITIAL_PRIORITY = 1;
+	protected final int INITIAL_PRIORITY = 1;
 	
 	
 	public GenericGraphWalk(Vertex rootVertex){
+		_bHasNext = true;
+		
 		_openVertexes = new PriorityQueueImpl();
 		_ClosedVertexes = new LinkedList<Vertex>();
 		
@@ -33,7 +38,7 @@ public abstract class GenericGraphWalk {
 				
 	}
 	
-	void goToNextStep(){
+	void goToNextVertex(){
 		boolean bNextVertexFound = false;
 		
 		
@@ -42,25 +47,61 @@ public abstract class GenericGraphWalk {
 			{
 				Vertex tempVertex = _openVertexes.peek();
 			
-				if(_ClosedVertexes.contains(tempVertex))
+				if(!_ClosedVertexes.contains(tempVertex))
 				{
+					/*found next unvisited vertex*/
 					bNextVertexFound = true;
 					
+					/*update next vertex to visit*/
+					_currentVertex = tempVertex;
+					_currentVertexPriority = _openVertexes.peekPriority();
+					
+					/* add all connected vertexes to the open vertexes*/
 					for (Iterator<Edge> iterator = tempVertex.getSuccessors().iterator(); iterator
 							.hasNext();) {
 						Edge nextEdge = (Edge) iterator.next();
 						_openVertexes.enqueue(nextEdge.getEndpoint(), getNextTag());				
 					}
+					
+//				/*remove the next vertex to visit from open vertexes*/
+//				/*we have pointer to it in _currentVertex           */
+//					_openVertexes.dequeue();
 				
-				
+				}else{
+					_openVertexes.dequeue();
 				}
 			}
 									
 			
 		} catch (QueueEmptyException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			_bHasNext = false;
+			_currentVertex =null;
 		}
+	}
+	
+	
+
+	protected class GraphIterator implements Iterator<Vertex>
+	{
+		GenericGraphWalk _genericGraph;
+		
+		 public GraphIterator(GenericGraphWalk genericGraph) {
+			 _genericGraph = genericGraph;
+		}
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return _genericGraph._bHasNext;
+		}
+
+		@Override
+		public Vertex next() {
+			Vertex vertexToReturn = _currentVertex;
+			_ClosedVertexes.addFirst(vertexToReturn);
+			goToNextVertex();		
+			return vertexToReturn;
+		}
+		
 	}
 
 }

@@ -43,9 +43,12 @@ public class VertexImpl implements Vertex {
 
 	@Override
 	public int size() {
-		//TODO: need to fix it , that is not what hilal wants
-		int retVal = _Connections.size();
-		return retVal;
+		int i = 0;
+		BFSGraphWalk walker = new BFSGraphWalk(this);
+		for(Vertex v:walker){
+			i++;
+		}
+	return i;
 	}
 
 	@Override
@@ -109,6 +112,10 @@ public boolean equals(Object obj) {
 
 @Override
 public String toString(){
+	return _name;
+}
+
+public Object getName() {
 	return _name;
 }
 

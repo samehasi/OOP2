@@ -5,7 +5,6 @@ package OOP2.Solution;
 
 import java.util.Iterator;
 
-import OOP2.Provided.Vertex;
 
 /**
  * @author SAMEH
