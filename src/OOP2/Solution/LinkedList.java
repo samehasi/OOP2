@@ -5,6 +5,8 @@ package OOP2.Solution;
 
 import java.util.Iterator;
 
+import OOP2.Provided.Vertex;
+
 /**
  * @author SAMEH
  *
@@ -117,6 +119,23 @@ private Node<T> find(T toFind){
 			return _iter._data;
 		}
 		
+	}
+
+
+	public boolean contains(T item) {
+		boolean bRetVal = false;
+		
+		for (Iterator<T> iterator = this.iterator(); iterator.hasNext();) {
+			T nextItem = (T) iterator.next();
+			
+			if(item.equals(nextItem)){
+				/*item found in the list*/
+				bRetVal = true;
+				break;
+			}
+			
+		}
+		return bRetVal;
 	}
 
 }

@@ -70,6 +70,13 @@ public class PriorityQueueImpl implements PriorityQueue,Iterable<Vertex> {
 		
 		return _linkedList.getFirst()._vertex;
 	}
+	
+	public int peekPriority()  throws QueueEmptyException{
+		if(isEmpty()){
+			throw new QueueEmptyException();
+		}		
+		return _linkedList.getFirst()._priority;
+	}
 
 	@Override
 	public boolean isEmpty() {
