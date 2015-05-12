@@ -27,15 +27,52 @@ public class VertexImpl implements Vertex {
 	public void connect(Vertex vertexToAdd) {
 		_Connections.addLast(vertexToAdd);
 	}
+	
+	public Vertex getconnectingEdge(Vertex vertex){
+		
+		Vertex retVal = null; //return null if nut found
+	for( Edge v : this.getSuccessors()){
+		VertexImpl vImp = (VertexImpl)v;
+		if(vImp.hasPathToVertex(vertex)){
+			retVal =v.getEndpoint();
+			break;
+		}			
+	}
+	return retVal;	
+	}
 
 	@Override
 	public Collection<Vertex> find(Vertex target) {
+		if(target == null){
+			return null;
+		}
 		
+				
 		/*allocate collection to return*/
 		LinkedList<Vertex> retCollection = new LinkedList<Vertex>();
 		
-		/*search for path recursively*/
-		recFind(retCollection, this, target);
+		if(equals(target))
+		{
+			retCollection.addLast(this);
+			return retCollection;
+		}
+		
+		
+		if(!this.hasPathToVertex(target)){
+			return retCollection;
+		}
+		
+		VertexImpl vertexIter = this;
+		
+		retCollection.addLast(vertexIter);
+		
+		while(!vertexIter.equals(target)){
+			Vertex connector =vertexIter.getconnectingEdge(target);
+			retCollection.addLast(connector);
+			vertexIter = (VertexImpl) connector;
+		}
+		
+		retCollection.addLast(target);
 		
 		/*return the collection*/
 		return retCollection;
@@ -45,7 +82,7 @@ public class VertexImpl implements Vertex {
 	public int size() {
 		int i = 0;
 		BFSGraphWalk walker = new BFSGraphWalk(this);
-		for(Vertex v:walker){
+		for(@SuppressWarnings("unused") Vertex v:walker){
 			i++;
 		}
 	return i;
@@ -118,5 +155,23 @@ public String toString(){
 public Object getName() {
 	return _name;
 }
+
+private boolean hasPathToVertex(Vertex vertex){
+	BFSGraphWalk bfs = new BFSGraphWalk(this);
+	boolean bRetVal = false;
+	
+	for( Vertex v : bfs){
+		
+		if(vertex.equals(v)){
+			bRetVal = true;
+					break;
+		}			
+	}
+	return bRetVal;	
+}
+
+
+
+
 
 }

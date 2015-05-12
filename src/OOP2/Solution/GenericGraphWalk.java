@@ -60,7 +60,10 @@ public abstract class GenericGraphWalk {
 					for (Iterator<Edge> iterator = tempVertex.getSuccessors().iterator(); iterator
 							.hasNext();) {
 						Edge nextEdge = (Edge) iterator.next();
-						_openVertexes.enqueue(nextEdge.getEndpoint(), getNextTag());				
+						_openVertexes.enqueue(nextEdge.getEndpoint(), getNextTag());
+						
+						
+						
 					}
 					
 //				/*remove the next vertex to visit from open vertexes*/
@@ -97,7 +100,6 @@ public abstract class GenericGraphWalk {
 		@Override
 		public Vertex next() {
 			Vertex vertexToReturn = _currentVertex;
-			_ClosedVertexes.addFirst(vertexToReturn);
 			goToNextVertex();		
 			return vertexToReturn;
 		}
