@@ -59,8 +59,7 @@ Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 			travelToNextVertexToVisit();
 								
 		} catch (QueueEmptyException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//do nothing
 		} 
 		
 	}

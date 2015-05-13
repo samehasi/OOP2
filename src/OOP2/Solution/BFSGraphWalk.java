@@ -51,7 +51,7 @@ public class BFSGraphWalk extends GenericGraphWalk implements Iterable<Vertex>{
 										
 				
 			} catch (QueueEmptyException e) {
-				//_currentVertex =null;
+				//_do nothing
 			}
 		}		
 	}
