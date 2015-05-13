@@ -1,4 +1,5 @@
 package OOP2.Provided;
+
 import OOP2.Provided.Vertex;
 
 public interface PriorityQueue {

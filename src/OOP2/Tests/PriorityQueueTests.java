@@ -109,18 +109,7 @@ public class PriorityQueueTests {
 			{
 				Assert.assertTrue(false);
 			}
-			try{
-				pq.enqueue(l, 2);
-				pq.enqueue(l, 2);
-				pq.enqueue(l, 2);
-				for(@SuppressWarnings("unused") Vertex v : (PriorityQueueImpl)pq){
-					pq.enqueue(l, 2);
-				}
-			} catch(ConcurrentModificationException exp)
-			{
-				System.out.println("expected: throws ConcurrentModificationException!");
-			}
-		
+			
 			System.out.println("you passed the iterator test!");
 
 		}
