@@ -27,31 +27,7 @@ public class DFSGraphWalk extends GenericGraphWalk  implements Iterable<Vertex> 
 		return new GraphIterator(this) ;
 	}
 
-	private int getValidSuccessorsNum(Vertex vertex){
-		int num = 0;
-		for(Edge e : vertex.getSuccessors()){
-			if(!_ClosedVertexes.contains(e.getEndpoint())){
-				num++;
-			}
-		}
-		return num;
-	}
-	
-	
-void inOrder(){
-	try {
-			Vertex tempVertex = _openVertexes.peek();
-			while(getValidSuccessorsNum(tempVertex) > 0){
-				
-			}
-			
-		} catch (QueueEmptyException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-	}
-	
+
 	
 Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 {
@@ -65,6 +41,7 @@ Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 	
 	@Override
 	void goToNextVertex() {
+		boolean bNextVertexFound = false;
 		try {
 			
 			Vertex tempVertex = _openVertexes.peek();
@@ -76,8 +53,24 @@ Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 				
 				if(!_ClosedVertexes.contains(e.getEndpoint())){
 					_openVertexes.enqueue(e.getEndpoint(),--_currentPriority);
-					_ClosedVertexes.addFirst(e.getEndpoint());
+					//_ClosedVertexes.addFirst(e.getEndpoint());
 				}
+			}
+			
+			
+			
+			
+			while(!bNextVertexFound )
+			{
+				tempVertex = _openVertexes.peek();
+			if(!_ClosedVertexes.contains(tempVertex))
+			{
+				/*found next unvisited vertex*/
+				bNextVertexFound = true;
+				break;			
+			}else{
+				_openVertexes.dequeue();
+			}//end else
 			}
 								
 		} catch (QueueEmptyException e) {
