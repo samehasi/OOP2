@@ -1,6 +1,6 @@
 package OOP2.Tests;
 
-import java.util.Collection;
+
 import java.util.LinkedList;
 import java.util.Arrays;
 
@@ -82,7 +82,6 @@ public class WalkTest{
 // walk_4: v2-v5-v4-v0-v6-v1-v3
 // walk_5: v3-v6-v4-v1-v5
 
-		LinkedList<Vertex> vertexes = new LinkedList<Vertex>();
 		
 		Vertex v0 = new VertexImpl("v0", 0);
 		Vertex v1 = new VertexImpl("v1", 0);
@@ -208,7 +207,7 @@ public class WalkTest{
 // walk_3: v2-v5-v4-v6-v0-v1-v3
 // walk_4: v3-v6-v4-v5-v1
 
-		LinkedList<Vertex> vertexes = new LinkedList<Vertex>();
+		//
 		
 		Vertex v0 = new VertexImpl("v0", 0);
 		Vertex v1 = new VertexImpl("v1", 0);

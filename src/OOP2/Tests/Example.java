@@ -6,11 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import OOP2.Provided.Edge;
-import OOP2.Provided.PriorityQueue;
-import OOP2.Provided.QueueEmptyException;
+
 import OOP2.Provided.Vertex;
 import OOP2.Solution.BFSGraphWalk;
-import OOP2.Solution.PriorityQueueImpl;
+
 import OOP2.Solution.VertexImpl;
 
 public class Example {
