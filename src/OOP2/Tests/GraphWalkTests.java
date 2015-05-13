@@ -90,7 +90,12 @@ public class GraphWalkTests {
 		l.connect(a);
 		DFSGraphWalk dfs = new DFSGraphWalk(a);
 		
+		int size = a.size();
+		
 		String[] testArray = {"a", "b", "d", "h", "i", "k", "l", "j", "e", "f", "c", "g"};
+		//String[] testArray = {"a", "c", "g", "l", "i", "k", "f", "h", "j", "b", "e", "d"};
+		
+		Assert.assertEquals(size, testArray.length);
 		int index = 0;
 		for(Vertex v : dfs)
 		{

@@ -32,7 +32,7 @@ public class VertexImpl implements Vertex {
 		
 		Vertex retVal = null; //return null if nut found
 	for( Edge v : this.getSuccessors()){
-		VertexImpl vImp = (VertexImpl)v;
+		VertexImpl vImp = (VertexImpl)v.getEndpoint();
 		if(vImp.hasPathToVertex(vertex)){
 			retVal =v.getEndpoint();
 			break;
@@ -72,7 +72,6 @@ public class VertexImpl implements Vertex {
 			vertexIter = (VertexImpl) connector;
 		}
 		
-		retCollection.addLast(target);
 		
 		/*return the collection*/
 		return retCollection;
