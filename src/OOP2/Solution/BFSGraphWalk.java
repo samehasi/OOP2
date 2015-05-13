@@ -30,10 +30,7 @@ public class BFSGraphWalk extends GenericGraphWalk implements Iterable<Vertex>{
 
 	@Override
 	void goToNextVertex() {
-		{
-			boolean bNextVertexFound = false;
-			
-			
+		{				
 			try {
 				
 					Vertex tempVertex = _openVertexes.peek();
@@ -49,19 +46,8 @@ public class BFSGraphWalk extends GenericGraphWalk implements Iterable<Vertex>{
 					_openVertexes.dequeue();
 					_ClosedVertexes.addFirst(tempVertex);
 					
-					while(!bNextVertexFound)
-					{
-						tempVertex = _openVertexes.peek();
-					if(!_ClosedVertexes.contains(tempVertex))
-					{
-						/*found next unvisited vertex*/
-						bNextVertexFound = true;
-						break;			
-					}else{
-						_openVertexes.dequeue();
-					}//end else
-					
-				}//end while
+
+					travelToNextVertexToVisit();
 										
 				
 			} catch (QueueEmptyException e) {

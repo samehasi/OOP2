@@ -41,7 +41,6 @@ Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 	
 	@Override
 	void goToNextVertex() {
-		boolean bNextVertexFound = false;
 		try {
 			
 			Vertex tempVertex = _openVertexes.peek();
@@ -53,25 +52,11 @@ Collection<Edge> revertCololection(Collection<Edge> collectionToRevert)
 				
 				if(!_ClosedVertexes.contains(e.getEndpoint())){
 					_openVertexes.enqueue(e.getEndpoint(),--_currentPriority);
-					//_ClosedVertexes.addFirst(e.getEndpoint());
 				}
 			}
 			
-			
-			
-			
-			while(!bNextVertexFound )
-			{
-				tempVertex = _openVertexes.peek();
-			if(!_ClosedVertexes.contains(tempVertex))
-			{
-				/*found next unvisited vertex*/
-				bNextVertexFound = true;
-				break;			
-			}else{
-				_openVertexes.dequeue();
-			}//end else
-			}
+					
+			travelToNextVertexToVisit();
 								
 		} catch (QueueEmptyException e) {
 			// TODO Auto-generated catch block

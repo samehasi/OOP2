@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 
 
-import OOP2.Provided.Edge;
+
 import OOP2.Provided.QueueEmptyException;
 import OOP2.Provided.Vertex;
 
@@ -54,6 +54,24 @@ public abstract class GenericGraphWalk {
 			return vertexToReturn;
 		}
 		
+	}
+	
+	
+	void travelToNextVertexToVisit() throws QueueEmptyException{
+		
+		boolean bNextVertexFound = false;
+		while(!bNextVertexFound  && !_openVertexes.isEmpty() )
+		{
+			Vertex tempVertex = _openVertexes.peek();
+		if(!_ClosedVertexes.contains(tempVertex))
+		{
+			/*found next unvisited vertex*/
+			bNextVertexFound = true;
+			break;			
+		}else{
+			_openVertexes.dequeue();
+		}//end else
+		}
 	}
 
 }
