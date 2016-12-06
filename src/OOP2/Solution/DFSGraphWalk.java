@@ -9,6 +9,7 @@ import OOP2.Provided.Edge;
 import OOP2.Provided.QueueEmptyException;
 import OOP2.Provided.Vertex;
 
+// koko reko
 public class DFSGraphWalk extends GenericGraphWalk  implements Iterable<Vertex> {
 
 	private int _maxPriority;
